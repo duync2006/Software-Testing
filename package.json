@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "chrome": "^0.1.0",
+    "csvtojson": "^2.0.10",
+    "driver": "^1.0.0",
+    "geckodriver": "^4.2.1",
+    "node-xlsx": "^0.23.0",
+    "selenium-webdriver": "^4.16.0",
+    "xlsx": "^0.19.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
