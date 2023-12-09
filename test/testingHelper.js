@@ -7,7 +7,7 @@ const Helper = {
     await driver.findElement(By.name("password")).sendKeys("moodle", Key.RETURN);
 
     if(await driver.wait(until.elementIsVisible(driver.findElement(By.id("page-header"))))) {
-      console.log("Login As Manager success")
+      // console.log("Login As Manager success")
     }
   },
 
@@ -21,7 +21,7 @@ const Helper = {
     var workbook = XLSX.readFile('../TCB04.xlsx');
     var sheet_name_list = workbook.SheetNames;
     var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-    console.log(xlData);
+    // console.log(xlData);
     return xlData
   }
 
