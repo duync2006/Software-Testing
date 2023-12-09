@@ -2,21 +2,20 @@ const {By, Key, Builder, until, error} = require("selenium-webdriver");
 
 const Helper = require('./testingHelper')
 
+
 async function main() { 
-  await TC_B04_001();
-  await TC_B04_002();
-  await TC_B04_003();
-  await TC_B04_004();
-  await TC_B04_005();
-  await TC_B04_006();
-  await TC_B04_007();
+  await TC_B07_001();
+  await TC_B07_002();
+  await TC_B07_003();
+  await TC_B07_004();
+  await TC_B07_005();
+  await TC_B07_006();
+  await TC_B07_007();
 }
-main()
 
+main();
 
-
-
-async function TC_B04_001() {
+async function TC_B07_001() {
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
   await Helper.loginAsManager(driver)
@@ -31,15 +30,15 @@ async function TC_B04_001() {
   await driver.findElement(By.id("id_saveanddisplay")).click();
   try {
     if(await driver.findElement(By.xpath("//li[@id='section-0']")).isDisplayed() == true) {
-      console.log("Testcase TC-B04-001 success")
+      console.log("Testcase TC-B07-001 success")
     }
   } catch (error) {
-    console.log("Testcase TC-B04-001 failed")
+    console.log("Testcase TC-B07-001 failed")
   }
   await driver.quit()
 }
 
-async function TC_B04_002() {
+async function TC_B07_002() {
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
   await Helper.loginAsManager(driver)
@@ -52,14 +51,14 @@ async function TC_B04_002() {
   await driver.findElement(By.id("id_saveanddisplay")).click();
   if(await driver.findElement(By.id('id_error_shortname')).isDisplayed() == true &&
      await driver.findElement(By.id('id_error_shortname')).getText() == "Short name is already used for another course (Developing)") {
-    console.log("Testcase TC-B04-002 success")
+    console.log("Testcase TC-B07-002 success")
   } else {
-    console.log("Testcase TC-B04-002 Failed")
+    console.log("Testcase TC-B07-002 Failed")
   }
   await driver.quit() 
 }
 
-async function TC_B04_003() {
+async function TC_B07_003() {
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
   await Helper.loginAsManager(driver)
@@ -74,14 +73,14 @@ async function TC_B04_003() {
   await driver.findElement(By.id("id_saveanddisplay")).click();
   if(await driver.findElement(By.id('id_error_fullname')).isDisplayed() == true &&
      await driver.findElement(By.id('id_error_fullname')).getText() == "- Missing full name") {
-    console.log("Testcase TC-B04-003 success")
+    console.log("Testcase TC-B07-003 success")
   } else {
-    console.log("Testcase TC-B04-003 Failed")
+    console.log("Testcase TC-B07-003 Failed")
   }
   await driver.quit() 
 }
 
-async function TC_B04_004() {
+async function TC_B07_004() {
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
   await Helper.loginAsManager(driver)
@@ -95,14 +94,14 @@ async function TC_B04_004() {
   
   await driver.findElement(By.id("id_saveanddisplay")).click();
   if(await driver.findElement(By.id('id_error_shortname')).getText() == "- Missing short name") {
-    console.log("Testcase TC-B04-004 success")
+    console.log("Testcase TC-B07-004 success")
   } else {
-    console.log("Testcase TC-B04-004 Failed")
+    console.log("Testcase TC-B07-004 Failed")
   }
   await driver.quit() 
 }
 
-async function TC_B04_005() {
+async function TC_B07_005() {
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
   await Helper.loginAsManager(driver)
@@ -111,24 +110,18 @@ async function TC_B04_005() {
   await driver.findElement(By.id("id_fullname")).sendKeys("");
 
   await driver.findElement(By.id("id_shortname")).sendKeys("");
-  await driver.findElement(By.xpath("//span[@class='form-autocomplete-downarrow position-absolute p-1']")).click();
-  await driver.findElement(By.xpath("//li[@data-value='5']")).click();
   
   await driver.findElement(By.id("id_saveanddisplay")).click();
   if(await driver.findElement(By.id('id_error_shortname')).getText() == "- Missing short name" &&
      await driver.findElement(By.id('id_error_fullname')).getText() == "- Missing full name") {
-    console.log("Testcase TC-B04-005 success")
+    console.log("Testcase TC-B07-005 success")
   } else {
-    console.log("Testcase TC-B04-005 Failed")
+    console.log("Testcase TC-B07-005 Failed")
   }
   await driver.quit() 
 }
 
-async function TC_B04_006() {
-  // console.log("Read CSV File")
-  // const data = await Helper.readDataDriven()
-  
-  // console.log(data[0])
+async function TC_B07_006() {
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
   await Helper.loginAsManager(driver)
@@ -141,17 +134,16 @@ async function TC_B04_006() {
   await driver.findElement(By.xpath("//div[@class='form-autocomplete-selection w-100 ']//span")).click();
   
   await driver.findElement(By.id("id_saveanddisplay")).click();
-  console.log(await driver.findElement(By.id('id_error_category')).getText())
+  // console.log(await driver.findElement(By.id('id_error_category')).getText())
   if(await driver.findElement(By.id('id_error_category')).getText() == "- You must supply a value here.") {
-    console.log("Testcase TC-B04-006 success")
+    console.log("Testcase TC-B07-006 success")
   } else {
-    console.log("Testcase TC-B04-006 Failed")
+    console.log("Testcase TC-B07-006 Failed")
   }
   await driver.quit() 
 }
 
-
-async function TC_B04_007() {
+async function TC_B07_007() {
   // console.log(data[0])
   driver = await new Builder().forBrowser("chrome").build();
   await driver.get("https://school.moodledemo.net/login/index.php")
@@ -173,16 +165,14 @@ async function TC_B04_007() {
   await driver.findElement(By.id("id_enddate_year")).click();
   driver.findElement(By.xpath("//select[@id='id_enddate_year']/option[@value='2023']")).click();
 
-  // await driver.findElement(By.id("id_enddate_hour")).click();
-
-  // await driver.findElement(By.id("id_enddate_minute")).click();
-
   await driver.findElement(By.id("id_saveanddisplay")).click();
 
   if(await driver.findElement(By.id('id_error_enddate')).getText() == "The course end date must be after the start date.") {
-    console.log("Testcase TC-B04-007 success")
+    console.log("Testcase TC-B07-007 success")
   } else {
-    console.log("Testcase TC-B04-007 Failed")
+    console.log("Testcase TC-B07-007 Failed")
   }
   await driver.quit() 
 }
+
+
