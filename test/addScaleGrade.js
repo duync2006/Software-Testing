@@ -2,6 +2,7 @@ const {By, Key, Builder, until, error} = require("selenium-webdriver");
 
 const Helper = require('./testingHelper')
 
+
 async function TC_B08_001() {
   // console.log(data[0])
   driver = await new Builder().forBrowser("chrome").build();
@@ -106,4 +107,10 @@ async function TC_B08_005() {
   await driver.quit() 
 }
 
-TC_B08_005()
+async function main() {
+  await TC_B08_001()
+  await TC_B08_002()
+  await TC_B08_003()
+  await TC_B08_004()
+  await TC_B08_005()
+}

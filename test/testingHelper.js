@@ -27,7 +27,14 @@ const Helper = {
     var workbook = XLSX.readFile('../TCB07.xlsx');
     var sheet_name_list = workbook.SheetNames;
     var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-    console.log(xlData);
+    // console.log(xlData);
+    return xlData
+  },
+  readDataDriven2: async() => {
+    var workbook = XLSX.readFile('../TCB08.xlsx');
+    var sheet_name_list = workbook.SheetNames;
+    var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
+    // console.log(xlData);
     return xlData
   }
 
