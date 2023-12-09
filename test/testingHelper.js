@@ -11,10 +11,10 @@ const Helper = {
     }
   },
 
-  navigateToAddNewUSer: async(driver) => {
+  navigateToAddNewCourses: async(driver) => {
     await driver.findElement(By.xpath("//a[@href='https://school.moodledemo.net/admin/search.php']")).click()
-    await driver.findElement(By.xpath("//a[@href='#linkusers']")).click()
-    await driver.findElement(By.xpath("//a[@href='https://school.moodledemo.net/user/editadvanced.php?id=-1']")).click()
+    await driver.findElement(By.xpath("//a[@href='#linkcourses']")).click()
+    await driver.findElement(By.xpath("//a[@href='https://school.moodledemo.net/course/edit.php?category=0']")).click()
   },
 
   readDataDriven: async() => {
